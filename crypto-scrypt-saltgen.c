@@ -22,7 +22,7 @@ int libscrypt_salt_gen(uint8_t *salt, size_t len)
   if (!CryptAcquireContext(&hCryptProv, 0, 0, PROV_RSA_FULL, CRYPT_VERIFYCONTEXT))
 		return -1;
 
-	if (!CryptGenRandom(hCryptProv, len, salt))
+	if (!CryptGenRandom(hCryptProv, (DWORD)len, salt))
 		ret = -1;
 
   if (!CryptReleaseContext(hCryptProv, 0))
