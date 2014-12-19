@@ -290,7 +290,7 @@ libscrypt_scrypt(const uint8_t * passwd, size_t passwdlen,
 		goto err1;
 	XY = (uint32_t *)(((uintptr_t)(XY0) + 63) & ~ (uintptr_t)(63));
 #ifndef MAP_ANON
-	if ((V0 = malloc(128 * r * N + 63)) == NULL)
+	if ((V0 = malloc(128 * r * (size_t)N + 63)) == NULL)
 		goto err2;
 	V = (uint32_t *)(((uintptr_t)(V0) + 63) & ~ (uintptr_t)(63));
 #endif
